@@ -36,46 +36,30 @@
 <!-- ============================================================
      [EDIT: HERO / ABOUT]
      ============================================================ -->
-<section class="hero">
+<section class="hero" id="hero">
 
   <!-- ===== BACKGROUND WORDS — only visible when hovering name box =====
        Edit, add, or remove <span>...</span> entries below.
        Words are clustered in the area BELOW the name box (top-left zone).
   -->
   <div class="bg-words" aria-hidden="true">
-    <span style="top: 32%; left: 2%;  font-size: 6.5rem;">Innovation</span>
-    <span style="top: 32%; left: 28%; font-size: 5rem;">Creative</span>
-    <span style="top: 45%; left: 10%; font-size: 7rem;">Thinking</span>
-    <span style="top: 45%; left: 32%; font-size: 4.5rem;">Curious</span>
-    <span style="top: 58%; left: 4%;  font-size: 6rem;">Intellectual</span>
-    <span style="top: 58%; left: 30%; font-size: 5.5rem;">Research</span>
-    <span style="top: 72%; left: 8%;  font-size: 5.5rem;">Identity</span>
-    <span style="top: 72%; left: 28%; font-size: 5rem;">Strategy</span>
-    <span style="top: 86%; left: 6%;  font-size: 5rem;">Discovery</span>
-    <span style="top: 86%; left: 26%; font-size: 5.5rem;">Insight</span>
+    <span style="top: 42%; left: 8%;  font-size: 5rem;">Innovation</span>
+    <span style="top: 42%; left: 30%; font-size: 4rem;">Creative</span>
+    <span style="top: 53%; left: 14%; font-size: 5.5rem;">Thinking</span>
+    <span style="top: 53%; left: 33%; font-size: 3.5rem;">Curious</span>
+    <span style="top: 65%; left: 6%;  font-size: 4.5rem;">Intellectual</span>
+    <span style="top: 65%; left: 32%; font-size: 4.5rem;">Research</span>
+    <span style="top: 78%; left: 10%; font-size: 4.5rem;">Identity</span>
+    <span style="top: 78%; left: 30%; font-size: 4rem;">Strategy</span>
+    <span style="top: 90%; left: 8%;  font-size: 4rem;">Discovery</span>
+    <span style="top: 90%; left: 28%; font-size: 4.5rem;">Insight</span>
   </div>
 
   <!-- ============================================================
        [EDIT: NAME BOX] — Isometric open-bracket frame with hover quote
-       To change the flying quote, edit the <textPath> text inside
-       the SVG below. The wavy path is fixed; just change the words.
+       To change the flying quote, edit the <textPath> text below.
        ============================================================ -->
-  <div class="iso-name-block">
-
-    <!-- The quote that flies out along a wavy path on hover -->
-    <svg class="fly-quote" viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <!-- Invisible wavy path that the text follows -->
-        <path id="quote-wave"
-              d="M 20,80 Q 100,20 180,70 T 340,60 T 500,50 T 680,40" />
-      </defs>
-      <text class="quote-text">
-        <textPath href="#quote-wave" startOffset="0">
-          "Innovation begins at the edges."
-        </textPath>
-      </text>
-    </svg>
-
+  <div class="iso-name-block" id="nameBox">
     <svg class="iso-frame" viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <!-- ===== TOP FACE (only the back-top slanted line — no front-top edge) ===== -->
       <line x1="60" y1="5" x2="260" y2="5" />
@@ -94,6 +78,20 @@
       <div class="subtitle">PhD Student · Binghamton University</div>
     </div>
   </div>
+
+  <!-- The wavy quote that appears next to the name box on hover.
+       Positioned to the right of the box so it stays inside the hero. -->
+  <svg class="fly-quote" viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <path id="quote-wave"
+            d="M 20,80 Q 100,20 180,70 T 340,60 T 500,50 T 680,40" />
+    </defs>
+    <text class="quote-text">
+      <textPath href="#quote-wave" startOffset="0">
+        "Innovation begins at the edges."
+      </textPath>
+    </text>
+  </svg>
 
   <div class="hero-content">
     <!-- To use a real photo: replace this div with:
@@ -135,6 +133,20 @@
 <footer>
   <p>© Alex Pham · <a href="mailto:hpham@binghamton.edu">hpham@binghamton.edu</a></p>
 </footer>
+
+<!-- ===== Hover trigger for the name box effect =====
+     When you hover the name box, the hero section gets a .name-hover
+     class, which is what activates the fade-in of the words and quote.
+-->
+<script>
+(function() {
+  const nameBox = document.getElementById('nameBox');
+  const hero = document.getElementById('hero');
+  if (!nameBox || !hero) return;
+  nameBox.addEventListener('mouseenter', () => hero.classList.add('name-hover'));
+  nameBox.addEventListener('mouseleave', () => hero.classList.remove('name-hover'));
+})();
+</script>
 
 </body>
 </html>
