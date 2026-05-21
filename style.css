@@ -123,32 +123,38 @@ section.hero {
 }
 
 /* ============================================================
-   FLY-OUT QUOTE — appears above the name box on hover
+   FLY-OUT QUOTE — text that follows a wavy path on hover
    ============================================================
-   To change the quote text: edit the .fly-quote div in index.html
-   To change color: edit `color` below
-   To change size: edit `font-size` below
+   To change the quote text: edit the <textPath> in index.html
+   To change color: edit `fill` on .quote-text below
+   To change size: edit `font-size` on .quote-text below
+   To change the wave shape: edit the path `d` attribute in index.html
    ============================================================ */
 .fly-quote {
   position: absolute;
-  bottom: calc(100% + 0.5rem);   /* sit just above the box */
-  left: 6rem;                    /* line up with the name text below */
+  bottom: calc(100% + 0.3rem);   /* sit just above the box */
+  left: 0;
+  width: 700px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.quote-text {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
-  font-size: 1.6rem;
-  color: #f7d100;                /* yellow accent */
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  pointer-events: none;
-  z-index: 3;
+  font-size: 1.5rem;
+  fill: #f7d100;                 /* yellow accent */
+  letter-spacing: 0.02em;
 }
-/* On hover: the quote flies up and fades in */
+/* On hover: the wavy quote fades in and rises slightly */
 .iso-name-block:hover .fly-quote {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 /* ============================================================

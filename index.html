@@ -40,31 +40,41 @@
 
   <!-- ===== BACKGROUND WORDS — only visible when hovering name box =====
        Edit, add, or remove <span>...</span> entries below.
-       The `left` values span 0%–95% to cover the whole hero width.
+       Words are clustered in the area BELOW the name box (top-left zone).
   -->
   <div class="bg-words" aria-hidden="true">
-    <span style="top: 5%;  left: 2%;  font-size: 8rem;">Innovation</span>
-    <span style="top: 8%;  left: 55%; font-size: 7rem;">Creative</span>
-    <span style="top: 25%; left: 35%; font-size: 9rem;">Thinking</span>
-    <span style="top: 22%; left: 78%; font-size: 6rem;">Curious</span>
-    <span style="top: 45%; left: 5%;  font-size: 7.5rem;">Intellectual</span>
-    <span style="top: 48%; left: 62%; font-size: 8.5rem;">Research</span>
-    <span style="top: 68%; left: 30%; font-size: 7rem;">Identity</span>
-    <span style="top: 72%; left: 80%; font-size: 6.5rem;">Strategy</span>
-    <span style="top: 88%; left: 8%;  font-size: 6rem;">Discovery</span>
-    <span style="top: 85%; left: 50%; font-size: 8rem;">Insight</span>
+    <span style="top: 32%; left: 2%;  font-size: 6.5rem;">Innovation</span>
+    <span style="top: 32%; left: 28%; font-size: 5rem;">Creative</span>
+    <span style="top: 45%; left: 10%; font-size: 7rem;">Thinking</span>
+    <span style="top: 45%; left: 32%; font-size: 4.5rem;">Curious</span>
+    <span style="top: 58%; left: 4%;  font-size: 6rem;">Intellectual</span>
+    <span style="top: 58%; left: 30%; font-size: 5.5rem;">Research</span>
+    <span style="top: 72%; left: 8%;  font-size: 5.5rem;">Identity</span>
+    <span style="top: 72%; left: 28%; font-size: 5rem;">Strategy</span>
+    <span style="top: 86%; left: 6%;  font-size: 5rem;">Discovery</span>
+    <span style="top: 86%; left: 26%; font-size: 5.5rem;">Insight</span>
   </div>
 
   <!-- ============================================================
        [EDIT: NAME BOX] — Isometric open-bracket frame with hover quote
-       To change the flying quote, edit the text inside .fly-quote below.
+       To change the flying quote, edit the <textPath> text inside
+       the SVG below. The wavy path is fixed; just change the words.
        ============================================================ -->
   <div class="iso-name-block">
 
-    <!-- The quote that flies out from above the box on hover -->
-    <div class="fly-quote" aria-hidden="true">
-      "Innovation begins at the edges."
-    </div>
+    <!-- The quote that flies out along a wavy path on hover -->
+    <svg class="fly-quote" viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <!-- Invisible wavy path that the text follows -->
+        <path id="quote-wave"
+              d="M 20,80 Q 100,20 180,70 T 340,60 T 500,50 T 680,40" />
+      </defs>
+      <text class="quote-text">
+        <textPath href="#quote-wave" startOffset="0">
+          "Innovation begins at the edges."
+        </textPath>
+      </text>
+    </svg>
 
     <svg class="iso-frame" viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <!-- ===== TOP FACE (only the back-top slanted line — no front-top edge) ===== -->
