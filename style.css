@@ -74,11 +74,11 @@ section.hero {
 }
 
 /* ============================================================
-   BACKGROUND WORDS — big display words scattered behind content
+   BACKGROUND WORDS — big display words that appear on name hover
    ============================================================
-   To change their visibility, edit `opacity` in `.bg-words span`
-   (currently 0.06 — try 0.08–0.10 for more visible, 0.04 for subtler)
-   To change color: edit `color` in `.bg-words span`
+   To change visibility level: edit `opacity` value in the
+   `:hover` rule below (currently 0.10)
+   To change fade speed: edit the `0.8s` durations below
    ============================================================ */
 .bg-words {
   position: absolute;
@@ -92,19 +92,29 @@ section.hero {
   font-family: var(--font-display);
   font-weight: 900;
   color: #ffffff;
-  opacity: 0.06;
+  opacity: 0;                    /* hidden by default */
   letter-spacing: -0.02em;
   white-space: nowrap;
   user-select: none;
   line-height: 1;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.6s ease;
+  transform: translate(-50%, -50%) translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-/* When the name box is hovered, brighten the background words slightly */
-.iso-name-block:hover ~ .bg-words span,
-.hero:hover .bg-words span {
+/* When the name box is hovered, fade in the background words */
+.hero:has(.iso-name-block:hover) .bg-words span {
   opacity: 0.10;
+  transform: translate(-50%, -50%) translateY(0);
 }
+/* Stagger the fade-in slightly for a "thought cloud" feel */
+.bg-words span:nth-child(2) { transition-delay: 0.05s; }
+.bg-words span:nth-child(3) { transition-delay: 0.10s; }
+.bg-words span:nth-child(4) { transition-delay: 0.15s; }
+.bg-words span:nth-child(5) { transition-delay: 0.20s; }
+.bg-words span:nth-child(6) { transition-delay: 0.25s; }
+.bg-words span:nth-child(7) { transition-delay: 0.30s; }
+.bg-words span:nth-child(8) { transition-delay: 0.35s; }
+.bg-words span:nth-child(9) { transition-delay: 0.40s; }
+.bg-words span:nth-child(10) { transition-delay: 0.45s; }
 
 /* Make sure the actual hero content sits above the background words */
 .hero > *:not(.bg-words) {
@@ -113,46 +123,33 @@ section.hero {
 }
 
 /* ============================================================
-   HOVER SQUIGGLE — the yellow scribble that flies out from name box
+   FLY-OUT QUOTE — appears above the name box on hover
    ============================================================
-   To change color: edit `stroke="#f7d100"` in the SVG in index.html
-   To change thickness: edit `stroke-width="6"` in the SVG
-   To change speed: edit the `2.2s` and `1.5s` durations below
+   To change the quote text: edit the .fly-quote div in index.html
+   To change color: edit `color` below
+   To change size: edit `font-size` below
    ============================================================ */
-.hover-squiggle {
+.fly-quote {
   position: absolute;
-  top: -80px;
-  left: 30%;
-  width: 800px;
-  height: 200px;
-  pointer-events: none;
-  z-index: 2;
-  overflow: visible;
-}
-.squiggle-path {
-  /* Hide the squiggle by default by setting its stroke length to 0 */
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
+  bottom: calc(100% + 0.5rem);   /* sit just above the box */
+  left: 6rem;                    /* line up with the name text below */
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #f7d100;                /* yellow accent */
+  white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  z-index: 3;
 }
-/* On hover: reveal the path with a "drawing" animation */
-.iso-name-block:hover .squiggle-path {
+/* On hover: the quote flies up and fades in */
+.iso-name-block:hover .fly-quote {
   opacity: 1;
-  animation: draw-squiggle 2.2s ease-out forwards,
-             float-squiggle 3s ease-in-out 2.2s infinite;
+  transform: translateY(0) scale(1);
 }
-@keyframes draw-squiggle {
-  from { stroke-dashoffset: 2000; }
-  to   { stroke-dashoffset: 0; }
-}
-@keyframes float-squiggle {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50%      { transform: translate(8px, -6px) rotate(1deg); }
-}
-
-/* Small visual cue that the name box is hoverable */
-.iso-name-block { cursor: default; }
 
 /* ============================================================
    ISOMETRIC NAME BLOCK — the open 3D bracket framing the name

@@ -38,35 +38,33 @@
      ============================================================ -->
 <section class="hero">
 
-  <!-- ===== BACKGROUND WORDS — big display words behind everything =====
+  <!-- ===== BACKGROUND WORDS — only visible when hovering name box =====
        Edit, add, or remove <span>...</span> entries below.
-       Sizes and positions are tweaked inline with style="..."
+       The `left` values span 0%–95% to cover the whole hero width.
   -->
   <div class="bg-words" aria-hidden="true">
-    <span style="top: 4%;  left: 30%; font-size: 9rem;">Innovation</span>
-    <span style="top: 18%; left: 55%; font-size: 7rem;">Creative</span>
-    <span style="top: 32%; left: 8%;  font-size: 8rem;">Thinking</span>
-    <span style="top: 46%; left: 48%; font-size: 9rem;">Intellectual</span>
-    <span style="top: 60%; left: 18%; font-size: 6.5rem;">Curious</span>
-    <span style="top: 70%; left: 55%; font-size: 8.5rem;">Research</span>
-    <span style="top: 84%; left: 10%; font-size: 7rem;">Identity</span>
-    <span style="top: 88%; left: 60%; font-size: 6.5rem;">Strategy</span>
+    <span style="top: 5%;  left: 2%;  font-size: 8rem;">Innovation</span>
+    <span style="top: 8%;  left: 55%; font-size: 7rem;">Creative</span>
+    <span style="top: 25%; left: 35%; font-size: 9rem;">Thinking</span>
+    <span style="top: 22%; left: 78%; font-size: 6rem;">Curious</span>
+    <span style="top: 45%; left: 5%;  font-size: 7.5rem;">Intellectual</span>
+    <span style="top: 48%; left: 62%; font-size: 8.5rem;">Research</span>
+    <span style="top: 68%; left: 30%; font-size: 7rem;">Identity</span>
+    <span style="top: 72%; left: 80%; font-size: 6.5rem;">Strategy</span>
+    <span style="top: 88%; left: 8%;  font-size: 6rem;">Discovery</span>
+    <span style="top: 85%; left: 50%; font-size: 8rem;">Insight</span>
   </div>
 
   <!-- ============================================================
-       [EDIT: NAME BOX] — Isometric open-bracket frame with hover squiggle
+       [EDIT: NAME BOX] — Isometric open-bracket frame with hover quote
+       To change the flying quote, edit the text inside .fly-quote below.
        ============================================================ -->
   <div class="iso-name-block">
-    <!-- The squiggly yellow scribble that flies out on hover -->
-    <svg class="hover-squiggle" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path class="squiggle-path"
-            d="M 20,140 Q 80,40 140,120 T 260,100 T 380,90 T 500,80 T 620,70 T 740,60"
-            fill="none"
-            stroke="#f7d100"
-            stroke-width="6"
-            stroke-linecap="round"
-            stroke-linejoin="round" />
-    </svg>
+
+    <!-- The quote that flies out from above the box on hover -->
+    <div class="fly-quote" aria-hidden="true">
+      "Innovation begins at the edges."
+    </div>
 
     <svg class="iso-frame" viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <!-- ===== TOP FACE (only the back-top slanted line — no front-top edge) ===== -->
